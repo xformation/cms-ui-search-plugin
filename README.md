@@ -1,2 +1,2 @@
-# cms-ui-search-plugin
-searchservice integration plugin to perform search
+# cms-ui-plugin
+Plugin for Attendance functionality 
