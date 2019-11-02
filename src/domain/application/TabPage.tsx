@@ -5,6 +5,8 @@ import {TabContent, TabPane, Nav, NavItem, NavLink} from 'reactstrap';
 import SubTabPage from './SubTabPage';
 import SearchTabPage from './SearchTabPage';
 import {FaUserGraduate} from 'react-icons/fa';
+import Filters from './filters/Filters';
+import Utils from './utils/Utils';
 
 export default class TabPage extends React.Component<any, any> {
   constructor(props: any) {
@@ -12,13 +14,24 @@ export default class TabPage extends React.Component<any, any> {
     this.state = {
       activeTab: 0,
     };
-    this.toggleTab = this.toggleTab.bind(this);
+	this.toggleTab = this.toggleTab.bind(this);
+	this.resHandler = this.resHandler.bind(this);
   }
 
   toggleTab(tabNo: any) {
     this.setState({
       activeTab: tabNo,
     });
+  }
+
+  resHandler(data:any) {
+	  let html = '';
+	  if (data && Array.isArray(data)) {
+		  html = Utils.createTableByArray(data);
+	  }
+	  this.setState({
+		  result: html
+	  })
   }
 
   render() {
@@ -68,7 +81,11 @@ export default class TabPage extends React.Component<any, any> {
             <SearchTabPage />
           </TabPane>
           <TabPane tabId={1}>
-            <SubTabPage />
+			<div>
+				<Filters json={Filters.studentJson} cls="com.synectiks.cms.domain.Student"
+					resultCallback={this.resHandler} isApply="true"/>
+				<div dangerouslySetInnerHTML={{__html: this.state.result}}></div>
+			</div>
           </TabPane>
           <TabPane tabId={2}>
             <SubTabPage />

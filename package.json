@@ -13,10 +13,7 @@
   "author": "Grafana Labs",
   "license": "Apache",
   "lint-staged": {
-    "*.{js,ts,json,css,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.{js,ts,json,css,md}": ["prettier --write", "git add"]
   },
   "prettier": {
     "singleQuote": true,
@@ -83,7 +80,7 @@
     "ts-jest": "^22.4.6",
     "ts-loader": "^4.3.0",
     "typescript": "^2.8.3",
-    "webpack": "^4.28.1",
+    "webpack": "^4.41.2",
     "webpack-cli": "^3.1.1"
   }
 }
