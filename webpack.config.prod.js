@@ -7,9 +7,9 @@ conf.mode = 'production';
 
 conf.plugins.push(new ngAnnotatePlugin());
 conf.plugins.push(
-  new UglifyJSPlugin({
-  sourceMap: true,
-  })
+	new UglifyJSPlugin({
+		sourceMap: true,
+	})
 );
 
 module.exports = conf;
