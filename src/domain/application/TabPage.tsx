@@ -15,7 +15,8 @@ export default class TabPage extends React.Component<any, any> {
 			activeTab: 0,
 		};
 		this.toggleTab = this.toggleTab.bind(this);
-		this.resHandler = this.resHandler.bind(this);
+		this.stResHandler = this.stResHandler.bind(this);
+		this.tchrResHandler = this.tchrResHandler.bind(this);
 	}
 
 	toggleTab(tabNo: any) {
@@ -24,13 +25,23 @@ export default class TabPage extends React.Component<any, any> {
 		});
 	}
 
-	resHandler(data: any) {
+	stResHandler(data: any) {
 		let html = '';
 		if (data && Array.isArray(data)) {
 			html = Utils.createTableByArray(data);
 		}
 		this.setState({
-			result: html,
+			stResult: html,
+		});
+	}
+
+	stResHandler(data: any) {
+		let html = '';
+		if (data && Array.isArray(data)) {
+			html = Utils.createTableByArray(data);
+		}
+		this.setState({
+			tchrResult: html,
 		});
 	}
 
@@ -85,14 +96,22 @@ export default class TabPage extends React.Component<any, any> {
 							<Filters
 								json={Filters.studentJson}
 								cls="com.synectiks.cms.domain.Student"
-								resultCallback={this.resHandler}
+								resultCallback={this.stResHandler}
 								isApply="true"
 							/>
-							<div dangerouslySetInnerHTML={{__html: this.state.result}} />
+							<div dangerouslySetInnerHTML={{__html: this.state.stResult}} />
 						</div>
 					</TabPane>
 					<TabPane tabId={2}>
-						<SubTabPage />
+						<div>
+							<Filters
+								json={Filters.teacherJson}
+								cls="com.synectiks.cms.domain.Teacher"
+								resultCallback={this.tchrResHandler}
+								isApply="true"
+							/>
+							<div dangerouslySetInnerHTML={{__html: this.state.tchrResult}} />
+						</div>
 					</TabPane>
 				</TabContent>
 			</section>

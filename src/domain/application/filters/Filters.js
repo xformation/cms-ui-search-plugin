@@ -132,6 +132,41 @@ const filterTypes = {
 	}
  */
 export default class Filters extends React.Component {
+	static teacherJson = {
+		baseUrl: 'http://localhost:8092/search/list',
+		elements: [
+			{
+				title: 'Attendance Rate',
+				type: filterTypes.TEXT,
+				key: 'attendanceRate',
+			},
+			{
+				title: 'Assignment Efficiency',
+				type: filterTypes.TEXT,
+				key: 'assignEffic',
+			},
+			{
+				title: 'Student Feedback ',
+				type: filterTypes.TEXT,
+				key: 'studentFeedback',
+			},
+			{
+				title: 'Parents Feedback',
+				type: filterTypes.TEXT,
+				key: 'parentFeedback',
+			},
+			{
+				title: 'Student Average Score',
+				type: filterTypes.TEXT,
+				key: 'studentAvgScore',
+			},
+			{
+				title: 'Responsive Index',
+				type: filterTypes.TEXT,
+				key: 'responsiveIndex',
+			},
+		],
+	};
 	static studentJson = {
 		baseUrl: 'http://localhost:8092/search/list',
 		elements: [
@@ -158,7 +193,7 @@ export default class Filters extends React.Component {
 			{
 				title: 'Collaboration Efficiency',
 				type: filterTypes.TEXT,
-				key: 'CollaborationEffic',
+				key: 'collaborationEffic',
 			},
 			{
 				title: 'Contribution Efficiency',
@@ -168,7 +203,7 @@ export default class Filters extends React.Component {
 			{
 				title: 'Learning Efficiency',
 				type: filterTypes.TEXT,
-				key: 'LearningEffic',
+				key: 'learningEffic',
 			},
 			{
 				title: 'Extra Curriculum Efficiency',
