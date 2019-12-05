@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ReplaceInFileWebpackPlugin = require('replace-in-file-webpack-plugin');
 
 const packageJson = require('./package.json');
@@ -31,7 +31,11 @@ module.exports = {
     }
   ],
   plugins: [
-    new CleanWebpackPlugin('dist', { allowExternal: true }),
+    new CleanWebpackPlugin({
+		dry: true,
+		cleanOnceBeforeBuildPatterns: ["dist"],
+		dangerouslyAllowCleanPatternsOutsideProject: true
+	}),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new CopyWebpackPlugin([
       { from: 'plugin.json', to: '.' },

@@ -73,7 +73,7 @@ export default class TabPage extends React.Component<any, any> {
 								this.toggleTab(1);
 							}}
 						>
-							Test 2
+							Search Students
 						</NavLink>
 					</NavItem>
 					<NavItem className="cursor-pointer">
@@ -83,7 +83,7 @@ export default class TabPage extends React.Component<any, any> {
 								this.toggleTab(2);
 							}}
 						>
-							Test 3
+							Search Teachers
 						</NavLink>
 					</NavItem>
 				</Nav>

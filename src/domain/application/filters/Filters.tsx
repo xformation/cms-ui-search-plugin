@@ -403,7 +403,7 @@ export default class Filters extends React.Component<any, any> {
 		if (this.state.isLoading) {
 			return (
 				<div className="divLoader">
-					<img src="/images/loader.gif" alt="Loader" />
+					<img src="public/plugins/cms-ui-search-plugin/img/loader.gif" alt="Loader" />
 				</div>
 			);
 		} else {
