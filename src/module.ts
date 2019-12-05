@@ -1,3 +1,5 @@
 import {WelcomePage} from './ui/WelcomePage';
 
-export {WelcomePage};
+export {
+  WelcomePage
+};

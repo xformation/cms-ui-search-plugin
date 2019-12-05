@@ -35,7 +35,7 @@ export default class TabPage extends React.Component<any, any> {
 		});
 	}
 
-	stResHandler(data: any) {
+	tchrResHandler(data: any) {
 		let html = '';
 		if (data && Array.isArray(data)) {
 			html = Utils.createTableByArray(data);
