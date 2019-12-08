@@ -313,7 +313,9 @@ export default class Utils {
 	static getReq(url) {
 		return new Promise((resolve, reject) => {
 			axios
-				.get(url)
+				.get(url, { headers: {
+					'Access-Control-Allow-Origin': '*',
+				  }, crossdomain: true })
 				.then(response => {
 					resolve(response);
 				})

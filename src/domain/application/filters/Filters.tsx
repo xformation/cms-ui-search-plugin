@@ -136,6 +136,11 @@ export default class Filters extends React.Component<any, any> {
 		baseUrl: 'http://localhost:8092/search/list',
 		elements: [
 			{
+				title: 'Name',
+				type: filterTypes.TEXT,
+				key: 'teacherName'
+			},
+			{
 				title: 'Attendance Rate',
 				type: filterTypes.TEXT,
 				key: 'attendanceRate',
@@ -273,10 +278,17 @@ export default class Filters extends React.Component<any, any> {
 			arr.map((kv: any, i: any) => {
 				if (kv.indexOf('=') > 0) {
 					const key = kv.substring(0, kv.indexOf('='));
-					const val = kv.substring(kv.indexOf('=') + 1);
-					if (val.indexOf('-') > 0) {
-						filters[key + '_Min'] = val.substring(0, val.indexOf('-'));
-						filters[key + '_Max'] = val.substring(val.indexOf('-') + 1);
+					let val = kv.substring(kv.indexOf('=') + 1);
+					if (val) {
+						val = val.trim();
+						// remove []
+						if (val.indexOf('[') == 0) {
+							val = val.substring(1, val.length - 2);
+						}
+						if (val.indexOf('-') > 0) {
+							filters[key + '_Min'] = val.substring(0, val.indexOf('-'));
+							filters[key + '_Max'] = val.substring(val.indexOf('-') + 1);
+						}
 					}
 					filters[key] = val;
 				}
@@ -334,24 +346,26 @@ export default class Filters extends React.Component<any, any> {
 		if (this.isApply && !e) {
 			return;
 		}
-		let params: any = [];
-		if (this.state.filters) {
-			Object.entries(this.state.filters).map(([key, val], indx) => {
-				if (params.length > 0) {
-					params += ',';
-				}
-				if (key.indexOf('_') === -1) {
-					params += key + ": '" + val + "'";
-				}
-				return indx;
-			});
-		}
-		this.reloadOrFetch(params);
+		// let params: string = '';
+		// if (this.state.filters) {
+		// 	Object.entries(this.state.filters).map(([key, val], indx) => {
+		// 		if (params.length > 0) {
+		// 			params += ',';
+		// 		}
+		// 		if (key.indexOf('_') === -1) {
+		// 			params += key + ": '" + val + "'";
+		// 		}
+		// 		return indx;
+		// 	});
+		// }
+		this.reloadOrFetch(this.state.filters);
 	}
 
 	reloadOrFetch(params: any) {
 		const fltrs = {
-			filters: params,
+			filters: [
+				params
+			]
 		};
 		const url =
 			this.baseUrl + '?cls=' + this.props.cls + '&filters=' + JSON.stringify(fltrs);

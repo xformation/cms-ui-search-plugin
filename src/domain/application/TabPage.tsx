@@ -95,7 +95,7 @@ export default class TabPage extends React.Component<any, any> {
 						<div>
 							<Filters
 								json={Filters.studentJson}
-								cls="com.synectiks.cms.domain.Student"
+								cls="com.synectiks.cms.entities.Student"
 								resultCallback={this.stResHandler}
 								isApply="true"
 							/>
@@ -106,7 +106,7 @@ export default class TabPage extends React.Component<any, any> {
 						<div>
 							<Filters
 								json={Filters.teacherJson}
-								cls="com.synectiks.cms.domain.Teacher"
+								cls="com.synectiks.cms.entities.Teacher"
 								resultCallback={this.tchrResHandler}
 								isApply="true"
 							/>
