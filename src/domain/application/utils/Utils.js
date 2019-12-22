@@ -299,6 +299,7 @@ export default class Utils {
 	}
 
 	static postReq(url, data, callback) {
+		console.log("Req: " + url + "\n" + data);
 		axios
 			.post(url, data)
 			.then(response => {

@@ -1,0 +1,102 @@
+.App {
+	text-align: center;
+}
+
+.App input {
+	margin: 5px 50px 5px 10px;
+}
+
+.whiteBG {
+	background: #FFF;
+}
+
+.loadingBG {
+	background: #FFF url(/img/loader.gif) no-repeat right center;
+}
+
+.maxHeight {
+	text-align: left;
+	max-height: 150px;
+	overflow-y: auto;
+}
+
+.suggesstionBox {
+	margin: 5px;
+	z-index: 1;
+}
+
+.suggesstions {
+	float: left;
+	list-style: none;
+	margin-top: -3px;
+	padding: 0;
+	position: absolute;
+}
+
+.suggesstions li {
+	padding: 10px;
+	background: #f0f0f0;
+	border-bottom: #bbb9b9 1px solid;
+}
+
+.suggesstions li:hover {
+	background: #ece3d2;
+	cursor: pointer;
+}
+.hideSuggesstionBox {
+	display: none;
+	z-index: 1;
+}
+.showSuggesstionBox {
+	display: block;
+	z-index: 1;
+}
+
+caption {
+	text-transform: capitalize;
+	text-align: center;
+    caption-side: top;
+}
+
+/* thead {
+	background-color: #627769;
+	text-transform: capitalize;
+}
+
+tbody tr:nth-child(odd) {
+	background-color: #d9e9f7;
+}
+  
+tbody tr:nth-child(even) {
+	background-color: #FFFFFF;
+} */
+
+#trnsResTbl {
+	margin: 10px;
+	border-collapse: collapse;
+}
+
+#trnsResTbl table {
+	margin: 5px;
+	background-color: #FFFFFF;
+}
+
+#trnsResTbl table caption {
+	visibility: hidden;
+}
+
+#trnsResTbl table thead {
+	background-color: #ccd8b9;
+}
+
+#trnsResTbl table tbody tr:nth-child(odd) {
+	background-color: #c5e9e3;
+}
+
+#trnsResTbl table tbody tr:nth-child(even) {
+	background-color: #f8e4e4;
+}
+
+td, #trnsResTbl td {
+	border: 0px;
+}
